@@ -1,0 +1,21 @@
+footer {
+  height: 140px;
+  padding: 30px 4vw;
+  margin: 50px 1vw 0 1vw;
+  background-color: #165E83;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    color: #fff;
+  }
+  .twitter-icon {
+    width: 40px;
+    display: block;
+    margin: 30px auto;
+  }
+  p {
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,50 @@
+<%# ヘッダー %>
+<%= render 'shared/header' %>
+<%# 背景画像 %>
+<%= image_tag 'top_cover.jpeg', class: 'top-cover' %>
+<h1 class='catch-copy'>トレーニングパートナーを見つけよう。</h1>
+<%# 検索フォーム %>
+<div class='search-form'>
+  <%# ダミーを配置 %>
+  <svg id="form" xmlns="http://www.w3.org/2000/svg" width="800" height="50" viewBox="0 0 956 76">
+    <g id="長方形_4" data-name="長方形 4" fill="#fff" stroke="#707070" stroke-linecap="round" stroke-width="1">
+      <rect width="741" height="76" rx="38" stroke="none"/>
+      <rect x="0.5" y="0.5" width="740" height="75" rx="37.5" fill="none"/>
+    </g>
+    <g id="長方形_6" data-name="長方形 6" transform="translate(779)" fill="#165e83" stroke="#165e83" stroke-linecap="round" stroke-width="1">
+      <rect width="177" height="76" rx="38" stroke="none"/>
+      <rect x="0.5" y="0.5" width="176" height="75" rx="37.5" fill="none"/>
+    </g>
+    <g id="長方形_5" data-name="長方形 5" transform="translate(667)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="147" height="76" stroke="none"/>
+      <rect x="0.5" y="0.5" width="146" height="75" fill="none"/>
+    </g>
+    <text id="検索" transform="translate(850 24)" fill="#fff" font-size="25" font-family="HiraginoSans-W5, Hiragino Sans"><tspan x="0" y="26">検索</tspan></text>
+    <text id="全国" transform="translate(688 26)" font-size="25" font-family="HiraginoSans-W4, Hiragino Sans"><tspan x="0" y="22">全国</tspan></text>
+    <path id="多角形_1" data-name="多角形 1" d="M8.5,0,17,15H0Z" transform="translate(792 46) rotate(180)" fill="#222"/>
+    <g id="グループ_3" data-name="グループ 3" transform="matrix(1, 0.017, -0.017, 1, -341.943, -480.172)">
+      <g id="search" transform="translate(380 497)">
+        <g id="楕円形_1" data-name="楕円形 1" fill="none" stroke="#707070" stroke-width="4">
+          <ellipse cx="13.409" cy="13.02" rx="13.409" ry="13.02" stroke="none"/>
+          <ellipse cx="13.409" cy="13.02" rx="11.409" ry="11.02" fill="none"/>
+        </g>
+        <line id="線_2" data-name="線 2" x2="6.218" y2="6.218" transform="translate(20.987 22.542)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="4"/>
+      </g>
+    </g>
+  </svg>
+</div>
+<%# 募集中のトレーニングを一覧表示 %>
+<div>
+  <h2>募集中のトレーニング</h2>
+  <ul class='training-list'>
+    <%# ダミー画像を配置 %>
+    <% 8.times do %>
+      <li class='trainig-content'>
+        <%= image_tag 'https://i.gyazo.com/f11048230fe0c55703882c8e8f05a0b1.png', class: 'dammy-image' %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to 'もっと見る', '#', class: 'show-trainings' %>
+</div>
+<%# フッター %>
+<%= render 'shared/footer' %>

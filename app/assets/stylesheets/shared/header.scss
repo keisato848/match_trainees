@@ -1,0 +1,26 @@
+header {
+  padding: 0 1vw;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  svg {
+    display: block;
+  }
+  .user-session {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    a {
+      display: block;
+      color: #165E83;
+      font-weight: 400;
+    }
+    .recruit-partner {
+      padding: 5px 20px;
+      border: 2px solid #165E83;
+      border-radius: 20px;
+    }
+  }
+}
