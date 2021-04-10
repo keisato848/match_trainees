@@ -1,9 +1,10 @@
 header {
   padding: 0 1vw;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #dcdcdc;
   svg {
     display: block;
   }
@@ -12,6 +13,10 @@ header {
     justify-content: space-between;
     align-items: center;
     width: 300px;
+    .user-image {
+      width: 30px;
+      border-radius: 50%;
+    }
     a {
       display: block;
       color: #165E83;

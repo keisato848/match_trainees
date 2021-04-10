@@ -1,8 +1,11 @@
 footer {
   height: 140px;
+  width: 85vw;
   padding: 30px 4vw;
   margin: 50px 1vw 0 1vw;
   background-color: #165E83;
+  position: absolute;
+  bottom: 0;
   ul {
     display: flex;
     justify-content: space-around;

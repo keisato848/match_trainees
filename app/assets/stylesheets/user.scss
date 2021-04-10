@@ -1,0 +1,134 @@
+.registration-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .form-wrap {
+    width: 60vw;
+    background-color: white;
+    padding-bottom: 70px;
+    .registration-github {
+      display: block;
+      width: 130px;
+      padding: 5px 15px;
+      margin: 40px auto 20px auto;
+      border: 1px solid #000;
+      border-radius: 4px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .form-header {
+      width: 100%;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .form-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      text-align: center;
+      &:first-child {
+        padding: 0;
+      }
+      .form-text-wrap {
+        width: 100%;
+        height: 20%;
+        margin-top: 2vh;
+        .form-text {
+          font-weight: 300;
+        }
+        .indispensable {
+          margin-left: 1vw;
+          color: #214b7d;
+          font-weight: 400;
+          vertical-align: bottom;
+        }
+      }
+      .input-default {
+        width: 80%;
+        height: 20%;
+        min-height: 50px;
+        padding-left: 2vw;
+        margin: 1vh auto;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        resize: none;
+      }
+      .info-text {
+        color: #666666;
+        margin-top: 1vh;
+      }
+      .form-bottom-text {
+        text-align: center;
+        padding: 15px 0;
+        span {
+          color: #214b7d;
+          cursor: pointer;
+        }
+      }
+      .form-bottom-text:last-child {
+        font-weight: 300;
+        margin: 0;
+      }
+    }
+    .register-btn {
+      width: 70%;
+      margin: 0 auto;
+    }
+    
+    .register-blue-btn {
+      width: 100%;
+      background: #165E83;
+      margin: 2vh auto;
+      border: 1px solid #165E83;
+      color: #fff;
+      line-height: 48px;
+      cursor: pointer;
+    }
+    
+    .register-info {
+      color: #165E83;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  
+  
+  h2 {
+    text-align: center;
+    font-weight: 300;
+    margin: 10px auto;
+  }
+  
+  .sns-authorization {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .sns-authorization>p{
+    width: 125px;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .sns-logo {
+    height: 20px;
+  }
+  
+  .sns-provider {
+    color: #666;
+    font-size: 14px;
+    font-weight: 300;
+    text-decoration: none;
+  }
+  
+  .sns-provider:hover {
+    text-decoration: underline;
+  }
+}
+  
