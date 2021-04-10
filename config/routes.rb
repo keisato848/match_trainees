@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root 'welcome#index'
-  resources :user, only: :new
+  resources :users, only: [:new, :destroy]
 end
