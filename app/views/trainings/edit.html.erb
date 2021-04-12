@@ -1,0 +1,75 @@
+<%# 現在時刻をオブジェクトに格納 %>
+<% now = Time.zone.now %>
+<%# ヘッダー %>
+<%= render 'shared/header' %>
+<%# フォーム %>
+<%= form_with model: @training, url: training_path, method: :patch, class: 'registration-main', local: true do |f| %>
+  <div class='form-wrap'>
+    <%# エラーメッセージ %>
+    <%= render 'shared/error_messages', model: @training %>
+
+    <div class='form-header'>
+      <h1>トレーニング編集</h1>
+    </div>
+    <%# タイトル %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">タイトル</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例）上半身ウェイトメニュー", maxlength: "50", autofocus: true %>
+    </div>
+    <%# 都道府県 %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">都道府県</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
+    </div>
+    <%# 場所 %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">場所</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :place, class:"input-default", id:"place", placeholder:"〇〇ジム〇〇店" %>
+      <p class='info-text'>※場所がわかるように記載してください。</p>
+    </div>
+    <%# 開始日時 %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">開始日時</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="datetime-select" >
+        <%= f.datetime_select :start_at, id:"start_at", start_year: now.year, end_year: now.year + 1 %>
+      </div>
+    </div>
+    <%# 終了日時 %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">終了日時</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="datetime-select" >
+        <%= f.datetime_select :end_at, id:"end_at", start_year: now.year, end_year: now.year + 1 %>
+      </div>
+    </div>
+    <%# 説明 %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">トレーニングの内容</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :content, class:"text-area-default", id:"content" %>
+    </div>
+    <%# 作成ボタン %>
+    <div class='register-btn'>
+      <%= f.submit "編集する" ,class:"register-blue-btn" %>
+    </div>
+  </div>
+
+<% end %>
+<%# フッター %>
+<%= render 'shared/footer' %>

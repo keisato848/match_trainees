@@ -34,6 +34,11 @@
       </div>
     </div>
   </div>
+  <% if @training.created_by?(current_user) %>
+    <div class='training-right-content'>
+      <%= link_to 'トレーニングを編集', edit_training_path(@training), class: 'edit-training-path' %>
+    </div>
+  <% end %>
 </div>
 
 

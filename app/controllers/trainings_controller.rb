@@ -17,6 +17,17 @@ class TrainingsController < ApplicationController
     @training = Training.find(params[:id])
   end
 
+  def edit
+    @training = current_user.created_trainings.find(params[:id])
+  end
+  
+  def update
+    @training = current_user.created_trainings.find(params[:id])
+    if @training.update(training_params)
+      redirect_to @training
+    end
+  end
+
   private
   
   def training_params
