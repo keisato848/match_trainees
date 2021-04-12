@@ -32,12 +32,23 @@
   }
   .training-right-content {
     margin: 2vh auto;
+    display: flex;
+    flex-direction: column;
     .edit-training-path {
       padding: 10px 30px;
       background-color: #f8770eb9;
       border-radius: 4px;
       color: #fff;
       font-weight: 600;
+      margin-bottom: 2vh;
+    }
+    .destroy-training-path {
+      padding: 10px 30px;
+      background-color: #f80e0eb9;
+      border-radius: 4px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 2vh;
     }
   }
 }

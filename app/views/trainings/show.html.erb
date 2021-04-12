@@ -36,7 +36,10 @@
   </div>
   <% if @training.created_by?(current_user) %>
     <div class='training-right-content'>
+      <%# 編集ページへのリンク %>
       <%= link_to 'トレーニングを編集', edit_training_path(@training), class: 'edit-training-path' %>
+      <%# 削除アクション %>
+      <%= link_to 'トレーニングを削除', training_path(@training), method: :delete, data: { confirm: '本当に削除しますか' }, class: 'destroy-training-path' %>
     </div>
   <% end %>
 </div>

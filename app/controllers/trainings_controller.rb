@@ -1,5 +1,6 @@
 class TrainingsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
+  
   def new
     @training = Training.new
   end
@@ -26,6 +27,12 @@ class TrainingsController < ApplicationController
     if @training.update(training_params)
       redirect_to @training
     end
+  end
+  
+  def destroy
+    @training = current_user.created_trainings.find(params[:id])
+    @training.destroy!
+    redirect_to root_path
   end
 
   private
