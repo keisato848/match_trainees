@@ -36,12 +36,23 @@
 <%# 募集中のトレーニングを一覧表示 %>
 <div>
   <h2>募集中のトレーニング</h2>
-  <ul class='training-list'>
-    <%# ダミー画像を配置 %>
-    <% 8.times do %>
-      <li class='trainig-content'>
-        <%= image_tag 'https://i.gyazo.com/f11048230fe0c55703882c8e8f05a0b1.png', class: 'dammy-image' %>
-      </li>
+  <ul class='top-training-list'>
+    <% @trainings.each do |training| %>
+      <a href=<%= "trainings/#{training.id}" %>%>
+        <li class='top-training-content'>
+          <div class='top-training-content-top'>
+            <%# トレーニングの画像を表示 %>
+          </div>
+          <div class='top-training-content-middle'>
+            <div><%= "開始日時：#{l(training.start_at, format: :long)}" %></div>
+            <div class='training-place'><%= "場所：#{training.place} " %></div>
+            <div class='training-name'><%= training.name %></div>
+          </div>
+          <div class='top-training-content-bottom'>
+            <%= training.owner.name %>
+          </div>
+        </li>
+      </a>
     <% end %>
   </ul>
   <%= link_to 'もっと見る', '#', class: 'show-trainings' %>

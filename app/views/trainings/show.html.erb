@@ -1,36 +1,37 @@
 <%# ヘッダー %>
 <%= render 'shared/header' %>
-<%# タイトル %>
-<h1><%= @training.name %></h1>
-
 
 <div class='training-content'>
-  <%# 開催時間 %>
-  <div class='training-group'>
-    <h2>練習時間</h2>
-    <div class='training-text'>
-      <%= "#{l(@training.start_at, format: :long)} - #{l(@training.end_at, format: :long)}" %>
+  <div class='training-left-content'>
+    <%# タイトル %>
+    <h1><%= @training.name %></h1>
+    <%# 開催時間 %>
+    <div class='training-group'>
+      <h2>練習時間</h2>
+      <div class='training-text'>
+        <%= "#{l(@training.start_at, format: :long)} - #{l(@training.end_at, format: :long)}" %>
+      </div>
     </div>
-  </div>
-  <%# 開催場所 %>
-  <div class='training-group'>
-    <h2>練習場所</h2>
-    <div class='training-text'>
-      <%= @training.place %>
+    <%# 開催場所 %>
+    <div class='training-group'>
+      <h2>練習場所</h2>
+      <div class='training-text'>
+        <%= @training.place %>
+      </div>
     </div>
-  </div>
-  <%# 練習内容 %>
-  <div class='training-group'>
-    <h2>練習内容</h2>
-    <div class='training-text'>
-      <%= safe_join(@training.content.split("\n"), tag(:br)) %>
+    <%# 練習内容 %>
+    <div class='training-group'>
+      <h2>練習内容</h2>
+      <div class='training-text'>
+        <%= safe_join(@training.content.split("\n"), tag(:br)) %>
+      </div>
     </div>
-  </div>
-  <%# 主催者 %>
-  <div class='training-group'>
-    <h2>主催者</h2>
-    <div class='training-text'>
-      <%= @training.owner.name %>
+    <%# 主催者 %>
+    <div class='training-group'>
+      <h2>主催者</h2>
+      <div class='training-text'>
+        <%= @training.owner.name %>
+      </div>
     </div>
   </div>
 </div>

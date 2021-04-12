@@ -33,7 +33,7 @@ div {
     position: relative;
     top: 17px;
   }
-  .training-list {
+  .top-training-list {
     min-height: 550px;
     padding: 50px 0;
     margin: 0 auto;
@@ -42,9 +42,29 @@ div {
     align-content: space-between;
     flex-wrap: wrap;
     border-top: 1px solid #666;
-    .training-content {
+    a:hover{
+      text-decoration: none;
+    }
+    .top-training-content {
       width: 400px;
       height: 300px;
+      border: 1px solid #666;
+      .top-training-content-top {
+        height: 100px;
+        background-color: aqua;
+      }
+      .top-training-content-middle {
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #666;
+        .training-name {
+          font-weight: 500;
+        }
+      }
+      .top-training-content-bottom {
+        height: 50px;
+      }
     }
   }
   .show-trainings {
