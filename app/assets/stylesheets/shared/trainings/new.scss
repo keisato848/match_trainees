@@ -1,0 +1,21 @@
+.prefecture-select {
+  height: 22px;
+  padding-left: 2vw;
+  margin: 1vh auto;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  resize: none;
+  text-align: center;
+}
+.datetime-select {
+  display: flex;
+  margin: 2vh auto;
+}
+.text-area-default {
+  width: 55%;
+  min-height: 70px;
+  margin: 2vh auto;
+  padding: 10px;
+  resize: none;
+}

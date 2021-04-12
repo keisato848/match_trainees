@@ -1,5 +1,5 @@
 class Training < ApplicationRecord
-  
+  belongs_to :owner, class_name: 'User'
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
   

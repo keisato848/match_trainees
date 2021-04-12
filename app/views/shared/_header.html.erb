@@ -19,9 +19,7 @@
   <%# ユーザーセッション %>
   <ul class='user-session'>
     <li>
-      <a href='#' class='recruit-partner'>
-        募集する
-      </a>
+    <%= link_to '募集する', new_training_path, class: 'recruit-partner' %>
     </li>
     <% if user_signed_in? %>
       <li>
