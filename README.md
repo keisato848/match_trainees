@@ -17,8 +17,7 @@
 |-|-|-|
 |context|text|null: false|
 |name|string|null: false|
-|img_url|string||
-|region_id|integer|null: false|
+|prefecture_id|integer|null: false|
 |place|string|null: false|
 |start_at|datetime|null: false|
 |end_at|datetime|null: false|
