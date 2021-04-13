@@ -1,0 +1,60 @@
+<%# ヘッダー %>
+<%= render 'shared/header' %>
+
+<div class='training-content'>
+  <div class='training-left-content'>
+    <%# タイトル %>
+    <h1><%= @training.name %></h1>
+    <%# 画像 %>
+    <% if @training.image.attached? %>
+      <%= image_tag @training.image.variant(resize_to_limit: [350, 250]), class: 'training-image' %>
+    <% end %>
+    <%# 開催時間 %>
+    <div class='training-group'>
+      <h2>練習時間</h2>
+      <div class='training-text'>
+        <%= "#{l(@training.start_at, format: :long)} - #{l(@training.end_at, format: :long)}" %>
+      </div>
+    </div>
+    <%# 開催地域 %>
+    <div class='training-group'>
+      <h2>開催地域</h2>
+      <div class='training-text'>
+        <%= @training.prefecture.name %>
+      </div>
+    </div>
+    <%# 開催場所 %>
+    <div class='training-group'>
+      <h2>練習場所</h2>
+      <div class='training-text'>
+        <%= @training.place %>
+      </div>
+    </div>
+    <%# 練習内容 %>
+    <div class='training-group'>
+      <h2>練習内容</h2>
+      <div class='training-text'>
+        <%= safe_join(@training.content.split("\n"), tag(:br)) %>
+      </div>
+    </div>
+    <%# 主催者 %>
+    <div class='training-group'>
+      <h2>主催者</h2>
+      <div class='training-text'>
+        <%= @training.owner.name %>
+      </div>
+    </div>
+  </div>
+  <% if @training.created_by?(current_user) %>
+    <div class='training-right-content'>
+      <%# 編集ページへのリンク %>
+      <%= link_to 'トレーニングを編集', edit_training_path(@training), class: 'edit-training-path' %>
+      <%# 削除アクション %>
+      <%= link_to 'トレーニングを削除', training_path(@training), method: :delete, data: { confirm: '本当に削除しますか' }, class: 'destroy-training-path' %>
+    </div>
+  <% end %>
+</div>
+
+
+<%# フッター %>
+<%= render 'shared/footer' %>

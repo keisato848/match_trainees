@@ -2,6 +2,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
+  has_many :created_trainings, class_name: 'Training', foreign_key: 'owner_id'
+
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)\w{6,12}\z/.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }
   validates :name, presence: true, uniqueness: true, length: { maximum: 40 }
