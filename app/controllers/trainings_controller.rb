@@ -1,10 +1,10 @@
 class TrainingsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
-  
+
   def new
     @training = Training.new
   end
-  
+
   def create
     @training = Training.new(training_params)
     if @training.save
@@ -21,14 +21,12 @@ class TrainingsController < ApplicationController
   def edit
     @training = current_user.created_trainings.find(params[:id])
   end
-  
+
   def update
     @training = current_user.created_trainings.find(params[:id])
-    if @training.update(training_params)
-      redirect_to @training
-    end
+    redirect_to @training if @training.update(training_params)
   end
-  
+
   def destroy
     @training = current_user.created_trainings.find(params[:id])
     @training.destroy!
@@ -36,8 +34,9 @@ class TrainingsController < ApplicationController
   end
 
   private
-  
+
   def training_params
-    params.require(:training).permit(:name, :image, :remove_image, :prefecture_id, :place ,:start_at, :end_at, :content).merge(owner_id: current_user.id)
+    params.require(:training).permit(:name, :image, :remove_image, :prefecture_id, :place, :start_at, :end_at,
+                                     :content).merge(owner_id: current_user.id)
   end
 end

@@ -5,7 +5,7 @@ RSpec.describe 'trainings', type: :system do
     @owner = create(:owner)
     @training = build(:training)
   end
-  
+
   context 'トレーニングを作成できるとき' do
     it '正しい情報を入力すればトレーニングが作成できる' do
       # ログイン
@@ -18,16 +18,16 @@ RSpec.describe 'trainings', type: :system do
       fill_in 'name', with: @training.name
       select '北海道', from: 'training[prefecture_id]'
       fill_in 'place', with: @training.place
-      select '2022', from: "training[start_at(1i)]"
-      select '12月', from: "training[start_at(2i)]"
-      select '31', from: "training[start_at(3i)]"
-      select '23', from: "training[start_at(4i)]"
-      select '58', from: "training[start_at(5i)]"
-      select '2022', from: "training[end_at(1i)]"
-      select '12月', from: "training[end_at(2i)]"
-      select '31', from: "training[end_at(3i)]"
-      select '23', from: "training[end_at(4i)]"
-      select '59', from: "training[end_at(5i)]"
+      select '2022', from: 'training[start_at(1i)]'
+      select '12月', from: 'training[start_at(2i)]'
+      select '31', from: 'training[start_at(3i)]'
+      select '23', from: 'training[start_at(4i)]'
+      select '58', from: 'training[start_at(5i)]'
+      select '2022', from: 'training[end_at(1i)]'
+      select '12月', from: 'training[end_at(2i)]'
+      select '31', from: 'training[end_at(3i)]'
+      select '23', from: 'training[end_at(4i)]'
+      select '59', from: 'training[end_at(5i)]'
       fill_in 'content', with: @training.content
       click_on '作成する'
       # 詳細ページに作成した内容が表示されていることを確認
@@ -55,16 +55,16 @@ RSpec.describe 'trainings', type: :system do
       fill_in 'name', with: @edited_training.name
       select '東京都', from: 'training[prefecture_id]'
       fill_in 'place', with: @edited_training.place
-      select '2022', from: "training[start_at(1i)]"
-      select '10月', from: "training[start_at(2i)]"
-      select '31', from: "training[start_at(3i)]"
-      select '23', from: "training[start_at(4i)]"
-      select '58', from: "training[start_at(5i)]"
-      select '2022', from: "training[end_at(1i)]"
-      select '10月', from: "training[end_at(2i)]"
-      select '31', from: "training[end_at(3i)]"
-      select '23', from: "training[end_at(4i)]"
-      select '59', from: "training[end_at(5i)]"
+      select '2022', from: 'training[start_at(1i)]'
+      select '10月', from: 'training[start_at(2i)]'
+      select '31', from: 'training[start_at(3i)]'
+      select '23', from: 'training[start_at(4i)]'
+      select '58', from: 'training[start_at(5i)]'
+      select '2022', from: 'training[end_at(1i)]'
+      select '10月', from: 'training[end_at(2i)]'
+      select '31', from: 'training[end_at(3i)]'
+      select '23', from: 'training[end_at(4i)]'
+      select '59', from: 'training[end_at(5i)]'
       fill_in 'content', with: @edited_training.content
       click_on '編集する'
       # 詳細ページに編集した内容が表示されていることを確認
@@ -76,7 +76,7 @@ RSpec.describe 'trainings', type: :system do
       expect(page).to have_content(@edited_training.content)
     end
   end
-  
+
   context 'トレーニングを編集できないとき' do
     it '作成したユーザー以外はトレーニングを編集できない' do
       # trainingをDBに保存
@@ -90,7 +90,7 @@ RSpec.describe 'trainings', type: :system do
       expect(page).to have_no_content 'トレーニングを編集'
     end
   end
-  
+
   context 'トレーニングを削除できるとき' do
     it '自分が作成したトレーニングは削除できる' do
       # trainingをDBに保存
@@ -121,5 +121,4 @@ RSpec.describe 'trainings', type: :system do
       expect(page).to have_no_content 'トレーニングを削除'
     end
   end
-
 end

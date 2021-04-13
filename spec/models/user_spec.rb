@@ -18,17 +18,17 @@ RSpec.describe User, type: :model do
     it 'emailがなければ登録できない' do
       @user.email = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("メールアドレスを入力してください")
+      expect(@user.errors.full_messages).to include('メールアドレスを入力してください')
     end
     it 'passwordがなければ登録できない' do
       @user.password = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワードを入力してください", 'パスワードは不正な値です')
+      expect(@user.errors.full_messages).to include('パスワードを入力してください', 'パスワードは不正な値です')
     end
     it 'passwordとpassword_confirmationが一致しなければ登録できない' do
       @user.password_confirmation = 'anotherpass1'
       @user.valid?
-      expect(@user.errors.full_messages).to include("パスワードの確認とパスワードの入力が一致しません")
+      expect(@user.errors.full_messages).to include('パスワードの確認とパスワードの入力が一致しません')
     end
     it 'passwordは8文字以上でも半角数字のみでは登録できない' do
       @user.password = '12345678'
@@ -51,7 +51,7 @@ RSpec.describe User, type: :model do
     it 'nameがなければ登録できない' do
       @user.name = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("ユーザー名を入力してください")
+      expect(@user.errors.full_messages).to include('ユーザー名を入力してください')
     end
     it '既存のnameは登録できない' do
       @user.save
