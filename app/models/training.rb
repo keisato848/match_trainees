@@ -10,16 +10,16 @@ class Training < ApplicationRecord
   # バリデーション
   with_options presence: true do
     validates :name, length: { maximum: 50 }
+    validates :prefecture_id, numericality: { other_than: 1 , message: 'を選択してください' }
     validates :place, length: { maximum: 100 }
     validates :start_at
     validates :end_at
     validates :content, length: { maximum: 200 }
   end
   validate :start_at_should_be_before_end_at
-  validates :prefecture_id, numericality: { other_than: 1 , message: 'を選択してください'}
   # Active Storageのバリデーション
   validates :image,
-    content_type: [:png, :jpg, :jpeg],
+    content_type: [:png, :jpg, :jpeg ],
     size: { less_than_or_equal_to: 10.megabytes },
     dimension: { width: { max: 2000 }, height: { max: 2000 } }
   
