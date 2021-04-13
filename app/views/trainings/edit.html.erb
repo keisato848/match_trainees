@@ -19,6 +19,27 @@
       </div>
       <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例）上半身ウェイトメニュー", maxlength: "50", autofocus: true %>
     </div>
+    <%# 画像 %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <p>
+          <label class="form-text">画像</label>
+          <span class="indispensable">任意</span>
+        </p>
+        <%# 画像が実際にアップロードされているかを判別 %>
+        <% if @training.image.attached? && @training.image.blob&.persisted? %>
+          <%= image_tag @training.image.variant(resize_to_limit: [350, 250]), class: 'training-image' %>
+        <% end %>
+      </div>
+      <%= f.file_field :image, class:"file-upload-field", id:"image", placeholder:"例）上半身ウェイトメニュー", maxlength: "50", autofocus: true %>
+        <%# 画像が実際にアップロードされているかを判別 %>
+      <% if @training.image.attached? && @training.image.blob&.persisted? %>
+        <p>
+          <%= f.check_box :remove_image %>
+          <label class="form-text">画像を削除する</label>
+        </p>
+      <% end %>
+    </div>
     <%# 都道府県 %>
     <div class="form-group">
       <div class='form-text-wrap'>

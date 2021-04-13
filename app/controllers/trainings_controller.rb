@@ -38,6 +38,6 @@ class TrainingsController < ApplicationController
   private
   
   def training_params
-    params.require(:training).permit(:name, :prefecture_id, :place ,:start_at, :end_at, :content).merge(owner_id: current_user.id)
+    params.require(:training).permit(:name, :image, :remove_image, :prefecture_id, :place ,:start_at, :end_at, :content).merge(owner_id: current_user.id)
   end
 end

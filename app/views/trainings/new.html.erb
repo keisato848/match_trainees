@@ -19,6 +19,14 @@
       </div>
       <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例）上半身ウェイトメニュー", maxlength: "50", autofocus: true %>
     </div>
+    <%# 画像 %>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">画像</label>
+        <span class="indispensable">任意</span>
+      </div>
+      <%= f.file_field :image, class:"file-upload-field", id:"image", placeholder:"例）上半身ウェイトメニュー", maxlength: "50", autofocus: true %>
+    </div>
     <%# 都道府県 %>
     <div class="form-group">
       <div class='form-text-wrap'>

@@ -5,6 +5,10 @@
   <div class='training-left-content'>
     <%# タイトル %>
     <h1><%= @training.name %></h1>
+    <%# 画像 %>
+    <% if @training.image.attached? %>
+      <%= image_tag @training.image.variant(resize_to_limit: [350, 250]), class: 'training-image' %>
+    <% end %>
     <%# 開催時間 %>
     <div class='training-group'>
       <h2>練習時間</h2>
