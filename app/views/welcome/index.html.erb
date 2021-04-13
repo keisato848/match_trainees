@@ -41,15 +41,19 @@
       <a href=<%= "trainings/#{training.id}" %>>
         <li class='top-training-content'>
           <div class='top-training-content-top'>
-            <%# トレーニングの画像を表示 %>
+            <% if training.image.attached? && training.image.blob&.persisted? %>
+              <%= image_tag training.image, class: 'training-content-image' %>
+            <% else %>
+              <%= image_tag 'training-dummy-image.png', class: 'training-content-image' %>
+            <% end %>
           </div>
           <div class='top-training-content-middle'>
-            <div><%= "開始日時：#{l(training.start_at, format: :long)}" %></div>
-            <div class='training-place'><%= "場所：#{training.place} " %></div>
             <div class='training-name'><%= training.name %></div>
+            <div><%= l(training.start_at, format: :long) %></div>
+            <div class='training-place'><%= training.place %></div>
           </div>
           <div class='top-training-content-bottom'>
-            <%= training.owner.name %>
+            <div class='training-owner-name'><%= training.owner.name %></div>
           </div>
         </li>
       </a>
