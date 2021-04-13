@@ -16,6 +16,13 @@
         <%= "#{l(@training.start_at, format: :long)} - #{l(@training.end_at, format: :long)}" %>
       </div>
     </div>
+    <%# 開催地域 %>
+    <div class='training-group'>
+      <h2>開催地域</h2>
+      <div class='training-text'>
+        <%= @training.prefecture.name %>
+      </div>
+    </div>
     <%# 開催場所 %>
     <div class='training-group'>
       <h2>練習場所</h2>
