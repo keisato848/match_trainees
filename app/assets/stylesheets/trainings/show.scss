@@ -1,0 +1,112 @@
+.training-content {
+  display: flex;
+  padding: 2vh auto;
+  .training-left-content {
+    width: 50vw;
+    padding: 2vh 5vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    h1 {
+      padding-bottom: 10px;
+    }
+    .training-image {
+      width: 350px;
+      height: 150px;
+      margin: 2vh auto;
+    }
+    .training-group{
+      width: 100%;
+      height: 100%;
+      h2 {
+        position: static;
+        background-color: #165E83;
+        margin: 2vh auto;
+      }
+      .training-text {
+        text-align: center;
+      }
+    }
+  }
+  .training-right-content {
+    margin: 2vh auto;
+    display: flex;
+    flex-direction: column;
+    .edit-training-path {
+      padding: 10px 30px;
+      background-color: #f8770eb9;
+      border-radius: 4px;
+      color: #fff;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 2vh;
+    }
+    .destroy-training-path {
+      padding: 10px 30px;
+      background-color: #f80e0eb9;
+      border-radius: 4px;
+      color: #fff;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 2vh;
+    }
+    .join-training-path {
+      padding: 10px 30px;
+      background-color: #165E83;
+      border-radius: 4px;
+      color: #fff;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 2vh;
+    }
+    .comment-modal-window {
+      display: none;
+      height: 150px;
+      margin: 2vh auto;
+      padding: 10px;
+      background-color: #dcdcdc;
+      border-radius: 4px;
+      text-align: center;
+      .comment-text {
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 10px 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #666;
+      }
+      .comment-input {
+        width: 100%;
+      }
+      .comment-btn {
+        margin: 2vh 0;
+        display: flex;
+        justify-content: flex-end;
+        .comment-cancel-btn {
+          padding: 5px 15px;
+          margin-right: 15px;
+          background-color: #dcdcdc;
+          border-radius: 4px;
+          border: 1px solid #000;
+          color: #000;
+          text-align: center;
+          font-weight: 600;
+          cursor: pointer;
+        }
+        .comment-submit-btn {
+          padding: 5px 15px;
+          background-color: #165E83;
+          border: #165E83;
+          border-radius: 4px;
+          color: #fff;
+          text-align: center;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
