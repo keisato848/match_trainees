@@ -45,14 +45,34 @@
       </div>
     </div>
   </div>
-  <% if @training.created_by?(current_user) %>
-    <div class='training-right-content'>
-      <%# 編集ページへのリンク %>
+  <div class='training-right-content'>
+    <% if @training.created_by?(current_user) %>
+      <%# 編集ボタン %>
       <%= link_to 'トレーニングを編集', edit_training_path(@training), class: 'edit-training-path' %>
-      <%# 削除アクション %>
+      <%# 削除ボタン %>
       <%= link_to 'トレーニングを削除', training_path(@training), method: :delete, data: { confirm: '本当に削除しますか' }, class: 'destroy-training-path' %>
+    <% end %>
+    <% if user_signed_in? && @training.created_by?(current_user) != true %>
+      <%# 参加ボタン %>
+      <div class='join-training-path' id='join-training-path'>トレーニングに参加</div>
+    <% end %>
+    <%# モーダルウィンドウ %>
+    <div class='comment-modal-window' id='comment-modal-window'>
+      <%= form_with url: training_tickets_path(@training), class: 'comment-modal-form', local: true do |f| %>
+        <h3 class="comment-text">参加コメント</h3>
+        <%= f.text_field :comment, id: 'comment', class: 'comment-input' %>
+        <div class='comment-btn'>
+          <div class='comment-cancel-btn' id='comment-cancel-btn'>キャンセル</div>
+          <%= f.submit '送信' ,class:'comment-submit-btn' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+    <%# モーダルウィンドウ %>
+    <%# コメントのエラーメッセージ %>
+    <% if @ticket.present? %>
+      <%= render 'shared/error_messages', model: @ticket %>
+    <% end %>
+  </div>
 </div>
 
 
