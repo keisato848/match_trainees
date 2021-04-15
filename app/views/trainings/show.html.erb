@@ -72,6 +72,18 @@
     <% if @ticket.present? %>
       <%= render 'shared/error_messages', model: @ticket %>
     <% end %>
+    <%# 参加者一覧 %>
+    <% if @tickets.present? %>
+      <div class='participants-title'>参加者一覧</div>
+      <div class='participants-list'>
+        <% @tickets.each do |ticket| %>
+          <p class='participant-name'>@<%= ticket.user.name %></p>
+          <% if ticket.comment.present? %>
+            <p class='participant-comment'><%= ticket.user.comment %></p>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 

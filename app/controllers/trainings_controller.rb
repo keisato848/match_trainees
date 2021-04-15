@@ -16,6 +16,7 @@ class TrainingsController < ApplicationController
 
   def show
     @training = Training.find(params[:id])
+    @tickets = @training.tickets.includes(:user).order(:created_at)
   end
 
   def edit

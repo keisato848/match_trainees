@@ -23,9 +23,15 @@
       width: 100%;
       height: 100%;
       h2 {
-        position: static;
-        background-color: #165E83;
+        width: 180px;
+        padding: 5px 20px;
         margin: 2vh auto;
+        background-color: #165E83;
+        border-radius: 20px;
+        border: 2px solid #165E83;
+        color: #fff;
+        font-weight: 500;
+        text-align: center;
       }
       .training-text {
         text-align: center;
@@ -62,6 +68,7 @@
       text-align: center;
       font-weight: 600;
       margin-bottom: 2vh;
+      cursor: pointer;
     }
     .comment-modal-window {
       display: none;
@@ -106,6 +113,26 @@
           font-weight: 600;
           cursor: pointer;
         }
+      }
+    }
+  }
+  .participants-title {
+    padding-left: 15px;
+    background-color: #dcdcdc;
+    border: 1px solid #666;
+    border-bottom: none;
+    font-size: 18px;
+  }
+  .participants-list {
+    width: 100%;
+    .participant-name {
+      padding-left: 10px;
+      border: 1px solid #666;
+      &:not(:last-child) {
+        border-top: none;
+      }
+      .participant-comment {
+        padding: 10px 0 0 10px;
       }
     }
   }
