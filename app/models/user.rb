@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
 
   has_many :created_trainings, class_name: 'Training', foreign_key: 'owner_id'
+  has_many :tickets
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)\w{6,12}\z/.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }

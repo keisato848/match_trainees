@@ -4,6 +4,7 @@ class Training < ApplicationRecord
 
   # アソシエーション
   belongs_to :owner, class_name: 'User'
+  has_many :tickets, dependent: :destroy
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
 

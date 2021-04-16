@@ -4,6 +4,7 @@ ja:
     models:
       user: ユーザー
       training: トレーニング
+      ticket: チケット
     attributes:
       user:
         email: メールアドレス
@@ -19,6 +20,9 @@ ja:
         end_at: 終了日時
         content: 内容
         image: 画像
+      ticket:
+        user: ユーザー
+        comment: コメント
       errors:
         messages:
           record_invalid: 'バリデーションに失敗しました: %{errors}'

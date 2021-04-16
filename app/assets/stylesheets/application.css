@@ -16,9 +16,10 @@
 
 body {
   min-height: 100vh;
-  padding: 2vh 2vw 180px 2vw;
+  padding: 2vh 2vw 250px 2vw;
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 a {

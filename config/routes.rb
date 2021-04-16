@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :trainings
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
   root 'welcome#index'
+  resources :trainings do
+    resources :tickets, only: [:create, :destroy]
+  end 
   resources :users, only: [:new, :destroy]
 end
