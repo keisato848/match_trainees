@@ -60,6 +60,10 @@
         <%# 参加ボタン %>
         <div class='join-training-path' id='join-training-path'>トレーニングに参加</div>
       <% end %>
+    <% else %>
+        <%# ログインページにリンクする参加ボタン %>
+        <%= link_to 'トレーニングに参加', user_session_path, class: 'join-training-path' %>
+        <%# <div class='join-training-path' id='join-training-path'>トレーニングに参加</div> %>
     <% end %>
     <%# モーダルウィンドウ %>
     <div class='comment-modal-window' id='comment-modal-window'>

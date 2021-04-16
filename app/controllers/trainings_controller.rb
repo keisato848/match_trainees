@@ -16,7 +16,8 @@ class TrainingsController < ApplicationController
 
   def show
     @training = Training.find(params[:id])
-    @ticket = current_user.tickets.find_by(training: @training)
+    return @ticket = current_user.tickets.find_by(training: @training) if user_signed_in?
+
     @tickets = @training.tickets.includes(:user).order(:created_at)
   end
 
