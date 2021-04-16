@@ -20,8 +20,6 @@
       margin: 2vh auto;
     }
     .training-group{
-      width: 100%;
-      height: 100%;
       h2 {
         width: 180px;
         padding: 5px 20px;
@@ -52,6 +50,15 @@
       margin-bottom: 2vh;
     }
     .destroy-training-path {
+      padding: 10px 30px;
+      background-color: #f80e0eb9;
+      border-radius: 4px;
+      color: #fff;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 2vh;
+    }
+    .cancel-training-path {
       padding: 10px 30px;
       background-color: #f80e0eb9;
       border-radius: 4px;
@@ -117,22 +124,22 @@
     }
   }
   .participants-title {
-    padding-left: 15px;
-    background-color: #dcdcdc;
-    border: 1px solid #666;
+    padding: 10px 15px;
+    background-color: #f8e10e70;
+    border: 1px solid #F8E00E;
     border-bottom: none;
     font-size: 18px;
   }
   .participants-list {
     width: 100%;
-    .participant-name {
-      padding-left: 10px;
-      border: 1px solid #666;
-      &:not(:last-child) {
+    .participant-content {
+      padding: 5px 10px;
+      border: 1px solid #F8E00E;
+      &:last-child {
         border-top: none;
       }
-      .participant-comment {
-        padding: 10px 0 0 10px;
+      .participant-name {
+        font-weight: 600;
       }
     }
   }
