@@ -53,8 +53,13 @@
       <%= link_to 'トレーニングを削除', training_path(@training), method: :delete, data: { confirm: '本当に削除しますか' }, class: 'destroy-training-path' %>
     <% end %>
     <% if user_signed_in? && @training.created_by?(current_user) != true %>
-      <%# 参加ボタン %>
-      <div class='join-training-path' id='join-training-path'>トレーニングに参加</div>
+      <% if @ticket && @ticket.id != nil %>
+        <%# キャンセルボタン %>
+        <%= link_to '参加をキャンセル', training_ticket_path(@training, @tickets), method: :delete, class: 'cancel-training-path' %>
+      <% else %>
+        <%# 参加ボタン %>
+        <div class='join-training-path' id='join-training-path'>トレーニングに参加</div>
+      <% end %>
     <% end %>
     <%# モーダルウィンドウ %>
     <div class='comment-modal-window' id='comment-modal-window'>
@@ -69,18 +74,20 @@
     </div>
     <%# モーダルウィンドウ %>
     <%# コメントのエラーメッセージ %>
-    <% if @ticket.present? %>
+    <% if @ticket %>
       <%= render 'shared/error_messages', model: @ticket %>
     <% end %>
     <%# 参加者一覧 %>
     <% if @tickets.present? %>
-      <div class='participants-title'>参加者一覧</div>
+      <div class='participants-title'>参加者</div>
       <div class='participants-list'>
         <% @tickets.each do |ticket| %>
-          <p class='participant-name'>@<%= ticket.user.name %></p>
-          <% if ticket.comment.present? %>
-            <p class='participant-comment'><%= ticket.user.comment %></p>
-          <% end %>
+          <div class='participant-content'>
+            <p class='participant-name'>@<%= ticket.user.name %></p>
+            <% if ticket.comment.present? %>
+              <p class='participant-comment'><%= ticket.comment %></p>
+            <% end %>
+          </div>
         <% end %>
       </div>
     <% end %>

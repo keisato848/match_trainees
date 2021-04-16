@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
   root 'welcome#index'
   resources :trainings do
-    resources :tickets
+    resources :tickets, only: [:create, :destroy]
   end 
   resources :users, only: [:new, :destroy]
 end
