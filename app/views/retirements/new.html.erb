@@ -1,0 +1,15 @@
+<%= render 'shared/header' %>
+<%= render 'shared/error_messages', model: current_user %>
+<h1>退会の確認</h1>
+<div class='retirement-confirmation'>
+  <p>退会した場合、ユーザーに関するデータがすべて削除されます。</p>
+  <p>ただし、以下の場合は退会することができません</p>
+  <ul class='retirement-precautions'>
+    <li>・公開中の未終了トレーニングがある場合</li>
+    <li>・未終了の参加トレーニングがある場合</li>
+  </ul>
+  <%= form_with model: current_user, url: retirements_path, method: :post, class: 'registration-main', local: true do |f| %>
+    <%= f.submit "退会する" ,class:"retirement-button" %>
+  <% end %>
+</div>
+<%= render 'shared/footer' %>

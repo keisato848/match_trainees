@@ -25,9 +25,12 @@
       <li>
         <% if current_user.image_url %>
           <%= link_to image_tag(current_user.image_url, class: 'user-image'), '#' %>
-        <% else %>
-          <%= link_to current_user.name, '#' %>
-        <% end %>
+        <% else %> 
+          <%= link_to current_user.name, '#' %> 
+        <% end %> 
+      </li>
+      <li>
+        <%= link_to '退会', new_retirement_path, class: 'retirement-link'%>
       </li>
       <li>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

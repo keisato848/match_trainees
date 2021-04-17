@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     resources :tickets, only: [:create, :destroy]
   end 
   resources :users, only: [:new, :destroy]
+  resources :retirements, only: [:new, :create]
 end

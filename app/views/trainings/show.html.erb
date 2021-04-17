@@ -41,7 +41,11 @@
     <div class='training-group'>
       <h2>主催者</h2>
       <div class='training-text'>
+      <% if @training.owner %>
         <%= @training.owner.name %>
+      <% else %>
+        退会したユーザーです
+      <% end %>
       </div>
     </div>
   </div>
@@ -55,7 +59,7 @@
     <% if user_signed_in? && @training.created_by?(current_user) != true %>
       <% if @ticket && @ticket.id != nil %>
         <%# キャンセルボタン %>
-        <%= link_to '参加をキャンセル', training_ticket_path(@training, @tickets), method: :delete, class: 'cancel-training-path' %>
+        <%= link_to '参加をキャンセル', training_ticket_path(@training), method: :delete, class: 'cancel-training-path' %>
       <% else %>
         <%# 参加ボタン %>
         <div class='join-training-path' id='join-training-path'>トレーニングに参加</div>
@@ -87,9 +91,11 @@
       <div class='participants-list'>
         <% @tickets.each do |ticket| %>
           <div class='participant-content'>
-            <p class='participant-name'>@<%= ticket.user.name %></p>
-            <% if ticket.comment.present? %>
-              <p class='participant-comment'><%= ticket.comment %></p>
+            <% if ticket.user %>
+              <p class='participant-name'>@<%= ticket.user.name %></p>
+              <% if ticket.comment %>
+                <p class='participant-comment'><%= ticket.comment %></p>
+              <% end %>
             <% end %>
           </div>
         <% end %>
