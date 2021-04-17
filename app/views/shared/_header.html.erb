@@ -22,12 +22,15 @@
     <%= link_to '募集する', new_training_path, class: 'recruit-partner' %>
     </li>
     <% if user_signed_in? %>
-      <li>
-        <% if current_user.image_url %>
+      <%# <li>
+        <% if current_user.image_url 
           <%= link_to image_tag(current_user.image_url, class: 'user-image'), '#' %>
-        <% else %>
-          <%= link_to current_user.name, '#' %>
-        <% end %>
+        <%# <% else %> 
+          <%# <%= link_to current_user.name, '#' %> 
+        <%# <% end %> 
+      <%# </li> %>
+      <li>
+        <%= link_to '退会', new_retirement_path, class: 'retirement'%>
       </li>
       <li>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

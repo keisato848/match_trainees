@@ -1,0 +1,27 @@
+.retirement-confirmation {
+  margin: 4vh 2vw;
+  p {
+    margin-bottom: 10px;
+  }
+  .retirement-precautions {
+    margin: 2vh auto;
+    li {
+      margin-bottom: 10px;
+    }
+  }
+  .retirement-button {
+    width: 120px;
+    padding: 5px 20px;
+    margin: 5vh auto 0 auto;
+    background-color: #fff;
+    border: 2px solid #165E83;
+    border-radius: 4px;
+    color: #165E83;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
