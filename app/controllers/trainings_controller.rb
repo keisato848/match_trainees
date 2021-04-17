@@ -1,5 +1,10 @@
 class TrainingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
+  def index
+    @trainings = Training.page(params[:page]).per(12)
+                         .where('start_at > ?', Time.zone.now).order(:start_at)
+  end
 
   def new
     @training = Training.new

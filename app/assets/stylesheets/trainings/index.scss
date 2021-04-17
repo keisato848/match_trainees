@@ -1,0 +1,78 @@
+.index-training-area {
+  padding: 0 1vw;
+  h2 {
+    width: 180px;
+    margin: 0 auto;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border-top: 1px solid #666;
+    background-color: #666;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    position: relative;
+    top: 17px;
+  }
+  .index-training-list {
+    padding: 50px 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
+    flex-wrap: wrap;
+    border-top: 1px solid #666;
+    .index-training-content {
+      width: 100%;
+      border: 1px solid #666;
+      &:not(:first-child) {
+        border-top: none;
+      }
+      a {
+        display: block;
+        padding: 10px;
+        &:hover{
+          text-decoration: none;
+          background-color: #dcdcdc;
+          transition: background-color 0.4s;
+        }
+      }
+      .index-training-name {
+        font-size: 20px;
+      }
+    }
+  }
+}
+.pagination {
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  white-space: nowrap;
+  .page {
+    width: 40px;
+    border-right: 1px solid #666;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    text-align: center;
+  }
+  .current {
+    background-color: #165E83;
+    color: #fff;
+    width: 40px;
+    border: 1px solid #165E83;
+    font-weight: 600;
+    text-align: center;
+  }
+  .next,.last,.prev {
+    width: 60px;
+    border-right: 1px solid #666;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    text-align: center;
+  }
+  .first {
+    width: 60px;
+    border: 1px solid #666;
+    text-align: center;
+  }
+}
