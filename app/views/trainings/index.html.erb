@@ -1,0 +1,16 @@
+<%= render 'shared/header' %>
+<div class='index-training-area'>
+  <h2>トレーニング一覧</h2>
+  <ul class='index-training-list'>
+    <% @trainings.each do |training| %>
+      <li class='index-training-content'>
+        <a href=<%= "trainings/#{training.id}" %>>
+          <div class='index-training-name'><%= training.name %></div>
+          <div><%= l(training.start_at, format: :long) %></div>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<%= paginate @trainings %>
+<%= render 'shared/footer' %>
