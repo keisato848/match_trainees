@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end 
   resources :users, only: [:new, :destroy]
   resources :retirements, only: [:new, :create]
+  resources :searches, only: :index 
 end
