@@ -64,3 +64,4 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'active_storage_validations', '~> 0.8.8'
 gem 'kaminari', '~> 1.2.0'
 gem 'ransack'
+gem 'aws-sdk-s3', require: false
