@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :destroy]
   resources :retirements, only: [:new, :create]
   resources :searches, only: :index 
+
+  # 落穂拾い用に全てのURLをキャッチ
+  match "*path" => "application#error404", via: :all
 end
