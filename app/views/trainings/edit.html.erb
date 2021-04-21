@@ -1,3 +1,5 @@
+<%# Vue.js用のファイルを読み込み %>
+<%= javascript_pack_tag 'image_preview_vue' %> 
 <%# 現在時刻をオブジェクトに格納 %>
 <% now = Time.zone.now %>
 <%# ヘッダー %>
@@ -20,18 +22,23 @@
       <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例）上半身ウェイトメニュー", maxlength: "50", autofocus: true %>
     </div>
     <%# 画像 %>
-    <div class="form-group">
+    <div class="form-group" id='training-image-form'>
       <div class='form-text-wrap'>
         <p>
           <label class="form-text">画像</label>
           <span class="indispensable">任意</span>
         </p>
+      </div>
         <%# 画像が実際にアップロードされているかを判別 %>
         <% if @training.image.attached? && @training.image.blob&.persisted? %>
-          <%= image_tag @training.image.variant(resize_to_limit: [350, 250]), class: 'training-image' %>
+          <%# 新しい画像が添付された場合は現在の画像を非表示 %>
+          <%= image_tag @training.image.variant(resize_to_limit: [350, 250]), "v-if" => "imgUrl == '' ", class: 'training-image' %>
         <% end %>
-      </div>
-      <%= f.file_field :image, class:"file-upload-field", id:"image", placeholder:"例）上半身ウェイトメニュー", maxlength: "50", autofocus: true %>
+        <%# 新しい画像をプレビュー表示 %>
+        <img v-if='imgUrl' v-bind:src='imgUrl' class='training-image'>
+        <div v-on:change='uploadFile'>
+          <%= f.file_field :image, class:"file-upload-field", id:"image" %>
+        </div>
         <%# 画像が実際にアップロードされているかを判別 %>
       <% if @training.image.attached? && @training.image.blob&.persisted? %>
         <p>
