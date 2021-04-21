@@ -1,6 +1,7 @@
+<%# Vue.js用のファイルを読み込み %>
+<%= javascript_pack_tag 'join_comment_vue' %> 
 <%# ヘッダー %>
 <%= render 'shared/header' %>
-
 <div class='training-content'>
   <div class='training-left-content'>
     <%# タイトル %>
@@ -62,7 +63,7 @@
         <%= link_to '参加をキャンセル', training_ticket_path(@training), method: :delete, class: 'cancel-training-path' %>
       <% else %>
         <%# 参加ボタン %>
-        <div class='join-training-path' id='join-training-path'>トレーニングに参加</div>
+        <div v-on:click="isActive = !isActive" class='join-training-path' id='join-training-path'>トレーニングに参加</div>
       <% end %>
     <% end %>
     <% if user_signed_in? == false%>
@@ -70,12 +71,12 @@
       <%= link_to 'トレーニングに参加', user_session_path, class: 'join-training-path' %>
     <% end %>
     <%# モーダルウィンドウ %>
-    <div class='comment-modal-window' id='comment-modal-window'>
+    <div v-bind:class='classObject' class='comment-modal-window' id='comment-modal-window'>
       <%= form_with url: training_tickets_path(@training), class: 'comment-modal-form', local: true do |f| %>
         <h3 class="comment-text">参加コメント</h3>
         <%= f.text_field :comment, id: 'comment', class: 'comment-input' %>
         <div class='comment-btn'>
-          <div class='comment-cancel-btn' id='comment-cancel-btn'>キャンセル</div>
+        <div v-on:click='isActive = !isActive' class='comment-cancel-btn' id='comment-cancel-btn'>キャンセル</div>
           <%= f.submit '送信' ,class:'comment-submit-btn' %>
         </div>
       <% end %>
