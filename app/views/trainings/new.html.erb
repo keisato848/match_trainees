@@ -1,3 +1,5 @@
+<%# Vue.js用のファイルを読み込み %>
+<%= javascript_pack_tag 'image_preview_vue' %> 
 <%# 現在時刻をオブジェクトに格納 %>
 <% now = Time.zone.now %>
 <%# ヘッダー %>
@@ -20,12 +22,16 @@
       <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例）上半身ウェイトメニュー", maxlength: "50", autofocus: true %>
     </div>
     <%# 画像 %>
-    <div class="form-group">
+    <div class="form-group" id='training-image-form'>
       <div class='form-text-wrap'>
         <label class="form-text">画像</label>
         <span class="indispensable">任意</span>
       </div>
-      <%= f.file_field :image, class:"file-upload-field", id:"image", placeholder:"例）上半身ウェイトメニュー", maxlength: "50", autofocus: true %>
+      <%# プレビュー機能 %>
+      <img v-if='imgUrl' v-bind:src='imgUrl' class='training-image'>
+      <div v-on:change='uploadFile'>
+        <%= f.file_field :image, class:"file-upload-field", id:"image" %>
+      </div>
     </div>
     <%# 都道府県 %>
     <div class="form-group">

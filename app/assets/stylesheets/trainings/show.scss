@@ -78,10 +78,8 @@
       cursor: pointer;
     }
     .comment-modal-window {
-      display: none;
-      height: 150px;
       margin: 2vh auto;
-      padding: 10px;
+      padding: 5px;
       background-color: #dcdcdc;
       border-radius: 4px;
       text-align: center;
@@ -93,7 +91,7 @@
         border-bottom: 1px solid #666;
       }
       .comment-input {
-        width: 100%;
+        width: 95%;
       }
       .comment-btn {
         margin: 2vh 0;
@@ -121,6 +119,12 @@
           cursor: pointer;
         }
       }
+    }
+    .hidden {
+      display: none;
+    }
+    .visible {
+      display: block;
     }
   }
   .participants-title {
