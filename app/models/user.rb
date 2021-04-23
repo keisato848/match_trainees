@@ -3,13 +3,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:github]
   before_destroy :check_all_events_finished
 
+  has_one_attached :image, dependent: :destroy
   has_many :created_trainings, class_name: 'Training', foreign_key: 'owner_id', dependent: :nullify
   has_many :tickets, dependent: :nullify
   has_many :participating_trainings, through: :tickets, source: :training
   has_many :user_additional_profiles, dependent: :destroy
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)\w{6,12}\z/.freeze
-  validates :password, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, format: { with: VALID_PASSWORD_REGEX }, on: :create
   validates :name, presence: true, uniqueness: true, length: { maximum: 40 }
   validates :image_url, allow_blank: true, format: { with: URI::DEFAULT_PARSER.make_regexp(%w[http https]) }
 
