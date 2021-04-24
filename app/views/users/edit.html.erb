@@ -33,7 +33,7 @@
         <label class="form-text">プロフィール画像</label>
         <span class="indispensable">任意</span>
       </div>
-      <img v-if='imgUrl' v-bind:src='imgUrl' class='training-image'>
+      <img v-if='imgUrl' v-bind:src='imgUrl' class='user-image'>
       <div v-on:change='uploadFile'>
         <%= f.file_field :image, class:"file-upload-field", id:"image" %>
       </div>
