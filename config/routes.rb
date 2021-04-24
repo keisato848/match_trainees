@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root 'welcome#index'
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resources :training_scores, only: [:new, :create, :edit, :update]
+  end
   resources :trainings do
     resources :tickets, only: [:create, :destroy]
   end 
