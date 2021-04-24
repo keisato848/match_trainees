@@ -1,0 +1,107 @@
+<%= render 'shared/header' %>
+<div class='user-content'>
+  <div class='user-left-content'>
+    <h1><%= @user.name %>のユーザーページ</h1>
+    <%# メールアドレス %>
+    <% if @user == current_user %>
+      <div class='user-group'>
+        <h2>メールアドレス</h2>
+        <div class='user-text'>
+          <%= @user.email %>
+          <p class='notice'>※本人にのみ表示しています。</p>
+        </div>
+      </div>
+    <% end %>
+
+    <%# 以下追加情報 %>
+    <%# 画像 %>
+    <div class='user-group'>
+      <h2>プロフィール画像</h2>
+      <% if @user.image_url.present? %>
+        <%= image_tag @user.image_url, class: 'user-image' %>
+      <% elsif @user.image.attached? %>
+        <%= image_tag @user.image, class: 'user-image' %>
+      <% else %>
+      <div class='user-text'>
+        <p>未設定</p>
+      </div>
+      <% end %>
+    </div>
+
+    <% unless @training_score %>
+      <div class='user-group'>
+        <h2>ベンチプレスMAX</h2>
+          <div class='user-text'>未設定</div>
+      </div>
+      <div class='user-group'>
+        <h2>スクワットMAX</h2>
+          <div class='user-text'>未設定</div>
+      </div>
+      <div class='user-group'>
+        <h2>デッドリフトMAX</h2>
+          <div class='user-text'>未設定</div>
+      </div>
+    <% else %>
+      <%# ベンチプレスのマックス重量 %>
+      <div class='user-group'>
+        <h2>ベンチプレスMAX</h2>
+        <% if @training_score.bench_press_weight.compact.present? %>
+          <div class='user-text'>
+            <%= @training_score.bench_press_weight %>kg
+          </div>
+        <% else %>
+          <div class='user-text'>
+            <p>未設定</p>
+          </div>
+        <% end %>
+      </div>
+
+      <%# スクワットのマックス重量 %>
+      <div class='user-group'>
+        <h2>スクワットMAX</h2>
+        <% if @training_score.squat_weight.present? %>
+          <div class='user-text'>
+            <%= @training_score.squat_weight %>kg
+          </div>
+        <% else %>
+          <div class='user-text'>
+            <p>未設定</p>
+          </div>
+        <% end %>
+      </div>
+
+      <%# デッドリフトのマックス重量 %>
+      <div class='user-group'>
+        <h2>デッドリフトMAX</h2>
+        <% if @training_score.deadlift_weight.present? %>
+          <div class='user-text'>
+            <%= @training_score.deadlift_weight %>kg
+          </div>
+        <% else %>
+          <div class='user-text'>
+            <p>未設定</p>
+          </div>
+        <% end %>
+      </div>
+  <% end %>
+
+  </div>
+  <%# 編集ページへのリンク %>
+  <% if @user == current_user %>
+    <div class='user-right-content'>
+      <%# 基本情報編集ボタン %>
+      <%= link_to '基本情報を編集', edit_user_path(params[:id]), class: 'edit-user-path' %>
+      <%# 追加情報作成・編集ボタン %>
+      <% if @user.training_scores %>
+        <%= link_to 'トレーニングスコアを登録', new_user_training_score_path(params[:id]), class: 'additional-user-profile-path' %>
+      <% else %>
+        <%= link_to 'トレーニングスコアを編集', edit_training_score_path(params[:id]), class: 'additional-user-profile-path' %>
+      <% end %>
+      <%# 退会ボタン %>
+      <%= link_to '退会', new_retirement_path, class: 'destroy-user-path' %>
+    </div>
+  <% end %>
+</div>
+
+<%# フッター %>
+<%= render 'shared/footer' %>
