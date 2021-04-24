@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :created_trainings, class_name: 'Training', foreign_key: 'owner_id', dependent: :nullify
   has_many :tickets, dependent: :nullify
   has_many :participating_trainings, through: :tickets, source: :training
-  has_many :user_additional_profiles, dependent: :destroy
+  has_many :training_scores, dependent: :destroy
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)\w{6,12}\z/.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }, on: :create
