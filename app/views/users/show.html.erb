@@ -45,7 +45,7 @@
       <%# ベンチプレスのマックス重量 %>
       <div class='user-group'>
         <h2>ベンチプレスMAX</h2>
-        <% if @training_score.bench_press_weight.compact.present? %>
+        <% if @training_score.bench_press_weight.present? %>
           <div class='user-text'>
             <%= @training_score.bench_press_weight %>kg
           </div>
@@ -92,10 +92,10 @@
       <%# 基本情報編集ボタン %>
       <%= link_to '基本情報を編集', edit_user_path(params[:id]), class: 'edit-user-path' %>
       <%# 追加情報作成・編集ボタン %>
-      <% if @user.training_scores %>
-        <%= link_to 'トレーニングスコアを登録', new_user_training_score_path(params[:id]), class: 'additional-user-profile-path' %>
+      <% if @training_score %>
+        <%= link_to 'トレーニングスコアを編集', edit_user_training_score_path(params[:id]), class: 'additional-user-profile-path' %>
       <% else %>
-        <%= link_to 'トレーニングスコアを編集', edit_training_score_path(params[:id]), class: 'additional-user-profile-path' %>
+        <%= link_to 'トレーニングスコアを登録', new_user_training_score_path(params[:id]), class: 'additional-user-profile-path' %>
       <% end %>
       <%# 退会ボタン %>
       <%= link_to '退会', new_retirement_path, class: 'destroy-user-path' %>

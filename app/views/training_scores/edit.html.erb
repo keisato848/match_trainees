@@ -1,0 +1,42 @@
+<%# ヘッダー %>
+<%= render 'shared/header' %>
+<%# フォーム %>
+<%= form_with model: @training_score, url: user_training_score_path, method: :patch, class: 'registration-main', local: true do |f| %>
+  <div class='form-wrap'>
+    <%# エラーメッセージ %>
+    <%= render 'shared/error_messages', model: @training_score %>
+
+    <div class='form-header'>
+      <h1>トレーニングスコアを編集</h1>
+    </div>
+    <%# ベンチプレス %>
+    <div class='form-group'>
+      <div class='form-text-wrap'>
+        <label class='form-text'>ベンチプレスのマックス重量</label>
+      </div>
+      <%= f.number_field :bench_press_weight, class:'number-input-default', id:'bench-press-weight', placeholder:'例）100', min: 10, max: 400, autofocus: true %>
+    </div>
+    <%# スクワット %>
+    <div class='form-group'>
+      <div class='form-text-wrap'>
+        <label class='form-text'>スクワットのマックス重量</label>
+      </div>
+      <%= f.number_field :squat_weight, class:'number-input-default', id:'squat-weight', placeholder:'例）100', min: 10, max: 400, autofocus: true %>
+    </div>
+    <%# デッドリフト %>
+    <div class='form-group'>
+      <div class='form-text-wrap'>
+        <label class='form-text'>デッドリフトのマックス重量</label>
+      </div>
+      <%= f.number_field :deadlift_weight, class:'number-input-default', id:'deadlift-weight', placeholder:'例）100', min: 10, max: 400, autofocus: true %>
+    </div>
+
+    <%# 注意書き %>
+
+    <div class='training-score-register-btn'>
+      <%= f.submit '編集する' ,class:'register-blue-btn' %>
+    </div>
+  </div>
+<% end %>
+
+<%= render 'shared/footer' %>
