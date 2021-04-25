@@ -13,7 +13,7 @@ class TrainingsController < ApplicationController
   def create
     @training = Training.new(training_params)
     if @training.save
-      redirect_to training_path(@training)
+      redirect_to training_path(@training), notice: 'トレーニングを作成しました'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class TrainingsController < ApplicationController
 
   def update
     @training = current_user.created_trainings.find(params[:id])
-    redirect_to @training if @training.update(training_params)
+    redirect_to @training, notice: 'トレーニング内容を更新しました' if @training.update(training_params)
   end
 
   def destroy

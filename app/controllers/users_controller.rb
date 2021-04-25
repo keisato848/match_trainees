@@ -7,12 +7,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-    redirect_to root_path if @user != current_user
   end
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), notice: '登録情報を更新しました'
     else
       render :edit
     end
