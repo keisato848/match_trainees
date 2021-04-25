@@ -1,7 +1,7 @@
 class TrainingScoresController < ApplicationController
   before_action :set_user
   before_action :correct_user
-  before_action :set_training, only: [:edit, :update]
+  before_action :set_training, only: [:edit, :update, :destroy]
 
   def new
     @training_score = TrainingScore.new
@@ -21,6 +21,14 @@ class TrainingScoresController < ApplicationController
 
   def update
     if @training_score.update(training_score_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @training_score.destroy
       redirect_to user_path(@user)
     else
       render :edit

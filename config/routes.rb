@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
   root 'welcome#index'
   resources :users, only: [:show, :edit, :update] do
-    resources :training_scores, only: [:new, :create, :edit, :update]
+    resources :training_scores, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :trainings do
     resources :tickets, only: [:create, :destroy]
