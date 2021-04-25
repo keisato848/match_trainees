@@ -1,7 +1,22 @@
-.user-image {
-  width: 100px;
-  height: 100px;
-  display: block;
-  margin: 2vh auto;
-  border-radius: 50%;
+.edit-training-score {
+  display: flex;
+  .user-image {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 2vh auto;
+    border-radius: 50%;
+  }
+  .destroy-training-score-path {
+    display: block;
+    height: 100%;
+    padding: 10px 30px;
+    margin: 0 2vw 0 auto;
+    background-color: #f80e0eb9;
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 2vh;
+  }
 }
