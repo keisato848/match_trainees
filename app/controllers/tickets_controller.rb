@@ -6,7 +6,7 @@ class TicketsController < ApplicationController
       t.comment = params[:comment]
     end
     if @ticket.save
-      redirect_to training_path(params[:training_id])
+      redirect_to training_path(params[:training_id]), notice: '参加処理が完了しました'
     else
       @training = Training.find(params[:training_id])
       @tickets = @training.tickets.includes(:user).order(:created_at)
@@ -17,6 +17,6 @@ class TicketsController < ApplicationController
   def destroy
     ticket = current_user.tickets.find_by!(training_id: params[:training_id])
     ticket.destroy!
-    redirect_to training_path(params[:training_id])
+    redirect_to training_path(params[:training_id]), notice: '参加をキャンセルしました'
   end
 end

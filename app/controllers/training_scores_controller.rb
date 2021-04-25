@@ -10,7 +10,7 @@ class TrainingScoresController < ApplicationController
   def create
     @training_score = TrainingScore.new(training_score_params)
     if @training_score.save
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), notice: 'トレーニングスコアを登録しました'
     else
       render :new
     end
@@ -21,7 +21,7 @@ class TrainingScoresController < ApplicationController
 
   def update
     if @training_score.update(training_score_params)
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), notice: 'トレーニングスコアを更新しました'
     else
       render :edit
     end
@@ -29,7 +29,7 @@ class TrainingScoresController < ApplicationController
 
   def destroy
     if @training_score.destroy
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), notice: 'トレーニングスコアを削除しました'
     else
       render :edit
     end
