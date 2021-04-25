@@ -9,6 +9,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      training_score: トレーニングスコア
       training: トレーニング
       ticket: チケット
     attributes:
@@ -18,6 +19,11 @@ ja:
         password_confirmation: パスワードの確認
         name: ユーザー名
         image_url: 画像URL
+      training_score:
+        bench_press_weight: ベンチプレスの重量
+        squat_weight: スクワットの重量
+        deadlift_weight: デッドリフトの重量
+        user_id: ユーザー
       training:
         name: 名前
         prefecture_id: 都道府県

@@ -24,13 +24,12 @@
     <% if user_signed_in? %>
       <li>
         <% if current_user.image_url %>
-          <%= link_to image_tag(current_user.image_url, class: 'user-image'), '#' %>
+          <%= link_to image_tag(current_user.image_url, class: 'user-image'), user_path(current_user.id) %>
+        <% elsif current_user.image.attached? %>
+          <%= link_to image_tag(current_user.image, class: 'user-image'), user_path(current_user.id) %>
         <% else %> 
-          <%= link_to current_user.name, '#' %> 
+          <%= link_to current_user.name, user_path(current_user.id) %> 
         <% end %> 
-      </li>
-      <li>
-        <%= link_to '退会', new_retirement_path, class: 'retirement-link'%>
       </li>
       <li>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

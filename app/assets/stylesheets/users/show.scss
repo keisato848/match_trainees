@@ -1,0 +1,77 @@
+.user-content {
+  display: flex;
+  padding: 2vh auto;
+  .user-left-content {
+    width: 50vw;
+    padding: 2vh 5vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    h1 {
+      padding-bottom: 10px;
+    }
+    .user-image {
+      width: 100px;
+      height: 100px;
+      display: block;
+      margin: 2vh auto;
+      border-radius: 50%;
+    }
+    .user-group{
+      h2 {
+        width: 180px;
+        padding: 5px 20px;
+        margin: 2vh auto;
+        background-color: #165E83;
+        border-radius: 20px;
+        border: 2px solid #165E83;
+        color: #fff;
+        font-weight: 500;
+        text-align: center;
+      }
+      .user-text {
+        text-align: center;
+        .notice {
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+  .user-right-content {
+    margin: 2vh auto;
+    display: flex;
+    flex-direction: column;
+    .edit-user-path {
+      padding: 10px 30px;
+      background-color: #f8770eb9;
+      border-radius: 4px;
+      color: #fff;
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 2vh;
+    }
+    .additional-user-profile-path {
+      padding: 10px 30px;
+      background-color: #165E83;
+      border-radius: 4px;
+      color: #fff;
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 2vh;
+      cursor: pointer;
+    }
+    .destroy-user-path {
+      padding: 10px 30px;
+      background-color: #f80e0eb9;
+      border-radius: 4px;
+      color: #fff;
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 2vh;
+    }
+  }
+}

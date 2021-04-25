@@ -1,7 +1,9 @@
 .registration-main {
-  width: 100%;
+  width: 50vw;
   display: flex;
   justify-content: center;
+  border: 1px solid #dcdcdc;
+  padding: 2vh 5vw;
   .form-wrap {
     width: 60vw;
     background-color: white;

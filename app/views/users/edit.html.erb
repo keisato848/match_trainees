@@ -1,0 +1,49 @@
+<%# 画像プレビュー用のVueファイルを読み込み（トレーニング作成機能のファイルを流用 %>
+<%= javascript_pack_tag 'image_preview_vue' %> 
+<%# ヘッダー %>
+<%= render 'shared/header' %>
+<%# フォーム %>
+<%= form_with model: @user, url: user_path, method: :patch, class: 'registration-main', local: true do |f| %>
+  <div class='form-wrap'>
+    <%# エラーメッセージ %>
+    <%= render 'shared/error_messages', model: @user %>
+
+    <div class='form-header'>
+      <h1>会員情報編集</h1>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">メールアドレス</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+    </div>
+
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">ユーザー名</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :name, class:"input-default", id:"name", placeholder:"例) 筋トレ太郎", maxlength:"40" %>
+    </div>
+
+    <%# プロフィール画像 %>
+    <div class="form-group" id='training-image-form'>
+      <div class='form-text-wrap'>
+        <label class="form-text">プロフィール画像</label>
+        <span class="indispensable">任意</span>
+      </div>
+      <img v-if='imgUrl' v-bind:src='imgUrl' class='user-image'>
+      <div v-on:change='uploadFile'>
+        <%= f.file_field :image, class:"file-upload-field", id:"image" %>
+      </div>
+    </div>
+
+
+    <div class='register-btn'>
+      <%= f.submit "編集する" ,class:"register-blue-btn" %>
+    </div>
+  </div>
+<% end %>
+
+<%= render 'shared/footer' %>
