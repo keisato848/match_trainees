@@ -6,4 +6,5 @@ class TrainingScore < ApplicationRecord
     validates :squat_weight
     validates :deadlift_weight
   end
+  validates :user_id, uniqueness: { message: 'のトレーニングスコアはすでに登録されています' }
 end
