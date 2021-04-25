@@ -29,7 +29,7 @@
             <div class='training-place'><%= training.place %></div>
           </div>
           <div class='top-training-content-bottom'>
-            <div class='training-owner-name'><%= training.owner.name %></div>
+            <%= link_to training.owner.name, user_path(training.owner.id), class: 'training-owner-name' %>
           </div>
         </li>
       </a>

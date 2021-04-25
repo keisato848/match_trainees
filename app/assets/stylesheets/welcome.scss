@@ -67,7 +67,6 @@
     padding: 50px 0;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-content: space-between;
     flex-wrap: wrap;
     border-top: 1px solid #666;
@@ -77,13 +76,20 @@
     .top-training-content {
       width: 300px;
       height: 290px;
-      margin: 2vh auto;
-      border: 1px solid #666;
+      margin: 2vh 3vw 2vh 2vw;
+      &:first-child {
+        margin-left: none;
+      }
+      &:last-child {
+        margin-right: none;
+      }
       .top-training-content-top {
         height: 100px;
         .training-content-image {
           width: 300px;
           height: 100px;
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
         }
       }
       .top-training-content-middle {
@@ -92,7 +98,12 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        border-bottom: 1px solid #666;
+        border-right: 1px solid #dcdcdc;
+        border-bottom: 1px solid #dcdcdc;
+        border-left: 1px solid #dcdcdc;
+        div {
+          width: 100%;
+        }
         .training-name {
           width: 100%;
           font-size: 1.2rem;
@@ -101,9 +112,17 @@
       }
       .top-training-content-bottom {
         height: 50px;
+        border-right: 1px solid #dcdcdc;
+        border-bottom: 1px solid #dcdcdc;
+        border-left: 1px solid #dcdcdc;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
         .training-owner-name {
           padding: 0 10px;
           line-height: 50px;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
