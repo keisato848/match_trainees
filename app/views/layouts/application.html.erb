@@ -15,9 +15,13 @@
   </head>
 
   <body>
+    <%= javascript_pack_tag 'flash_notice_vue' %>
     <% if flash.notice %>
-      <div class='notice-container'>
+      <div v-bind:class='flashClassObject' class='notice-container' id='flash-notice'>
         <%= flash.notice %>
+        <div v-on:click='isActive = !isActive' id='flash-notice-close'>
+          <%= image_tag 'outline_cancel_black_24dp.png', class: 'notice-close'%>
+        </div>
       </div>
     <% end %>
     <%= yield %>

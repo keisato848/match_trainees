@@ -23,12 +23,24 @@ body {
 }
 
 .notice-container {
+  display: flex;
   padding: 20px;
   margin-bottom: 2vh;
   background-color: rgba(0, 128, 15, 0.25);
   border-radius: 4px;
   color: #666;
 }
+
+#flash-notice-close {
+  width: 30px;
+  margin: auto 0 auto auto;
+  cursor: pointer;
+}
+
+.notice-close {
+  display: block;
+}
+
 a {
   color: #000;
   text-decoration: none;
@@ -46,4 +58,8 @@ h1 {
   color: #165E83;
   text-align: center;
   text-shadow: 1px 3px 5px #dcdcdc;
+}
+
+.hidden {
+  display: none;
 }
