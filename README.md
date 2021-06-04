@@ -60,7 +60,6 @@ VScode
 - トレーニング日記機能
 - トレーニングスコアのランキング機能
 - 個人チャット機能
-- AWS Route53で独自ドメインを取得
 - AWS Certificate ManagerでSSL証明書を発行し、アプリケーションをSSL化
 
 ## DB設計
