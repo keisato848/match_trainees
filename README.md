@@ -6,7 +6,7 @@ Match Trainees
 
 ## 本番環境
 ### デプロイ先
-http://3.113.118.238/
+http://www.match-trainees.com/
 ### テストアカウント
 |アカウント名|email|password|
 |-|-|-|
